@@ -21,5 +21,5 @@ app.use(Express.urlencoded({ extended: true }));
 app.use("/", router);
 
 app.listen(PORT, () => {
-  console.log(`Le serveur a démarré à l'adresse http://localhost/${PORT}`);
+  console.log(`Le serveur a démarré à l'adresse http://localhost:${PORT}`);
 });

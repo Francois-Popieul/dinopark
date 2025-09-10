@@ -1,13 +1,44 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/css/style.css" rel="stylesheet" />
-    <title>Page d'accueil</title>
-</head>
-<body>
-    <h1>Page d'accueil</h1>
-</body>
-<script src="/js/index.js"></script>
-</html>
+<%- include("../partials/head", { title: "DinoPark - Page d'accueil" }) %>
+
+    <main class="page">
+        <section class="homepage-main-section">
+            <h1 class="section-title">Bienvenue à DinoPark</h1>
+            <p class="section-paragraph">Entrez dans un monde peuplé de géants préhistoriques. Découvrez des attractions
+                palpitantes, des activités éducatives et des aventures inoubliables pour toute la famille.</p>
+            <div class="button-container">
+                <a href="/"><button type="button" class="blue-button">Réserver votre aventure</button></a>
+                <a href="/attractions"><button type="button" class="orange-button transparent-button">Découvrir les attractions</button>
+                <img src="" alt=""></a>
+            </div>
+            <h2 class="section-title">Des aventures pour tous</h2>
+            <p class="section-paragraph">Que vous prévoyiez une sortie en famille, que vous recherchiez le grand frisson
+                ou que vous souhaitiez
+                vivre une expérience premium, une aventure parfaite vous attend dans notre parc.</p>
+            <div>
+
+            </div>
+        </section>
+        <section class="homepage-section">
+            <h2 class="section-title">Attractions en vedette</h2>
+            <p class="section-paragraph">Découvrez nos attractions les plus populaires redonnant vie au monde
+                préhistorique.</p>
+            <div>
+
+            </div>
+            <button type="button" class="orange-button transparent-button">Voir toutes les attractions</button>
+        </section>
+        <section class="homepage-section">
+            <h2 class="section-title">Dinosaures en vedette</h2>
+            <p class="section-paragraph">Découvrez certains des dinosaures peuplant notre parc.</p>
+            <div>
+
+            </div>
+            <button type="button" class="orange-button transparent-button">Voir tous les dinosaures</button>
+        </section>
+        <section class="homepage-section">
+            <h2 class="section-title">Prêt à vivre une aventure préhistorique ?</h2>
+            <p class="section-paragraph">Réservez vos billets sans attendre pour pénétrer dans un monde où les
+                dinosaures règnent en maîtres.</p>
+            <button type="button" class="blue-button">Réserver des billets</button>
+        </section>
+    </main>
