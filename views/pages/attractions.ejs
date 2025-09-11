@@ -2,4 +2,21 @@
 
     <main class="page">
         <h1>Page des attractions</h1>
+        <div class="card-container">
+            <% attractions.forEach((attraction)=> { %>
+                <a href="attractions/<%= attraction.id_attraction %>">
+                    <div class="attraction-card">
+                        <p class="attraction-card-name">
+                            <%= attraction.attraction_name %>
+                        </p>
+                        <div class="attraction-card-image"><img
+                                src="/images/water-splash-zone-with-spinosaurus-dinosaur.png"
+                                alt="Image d'illustration de <%= attraction.attraction_name %>"></div>
+                        <p class="attraction-card-description">
+                            <%= attraction.attraction_description %>
+                        </p>
+                    </div>
+                </a>
+                <% }); %>
+        </div>
     </main>

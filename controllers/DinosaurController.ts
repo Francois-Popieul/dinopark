@@ -11,10 +11,9 @@ export class DinosaurController extends Controller {
     this.dinosaurRepository = new DinosaurRepository();
   }
 
-  public async browseDinosaurs() {
-    console.log("Appel du contrôleur des dinosaures");
-    const dinosaurs = await this.dinosaurRepository.findAll();
 
-    this.response.render("pages/dinosaurs.ejs");
+  public async browseDinosaurs() {
+    const dinosaurs = await this.dinosaurRepository.findAll();
+    this.response.render("pages/dinosaurs.ejs", { dinosaurs: dinosaurs });
   }
 }

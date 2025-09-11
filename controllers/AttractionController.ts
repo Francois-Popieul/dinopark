@@ -12,9 +12,7 @@ export class AttractionController extends Controller {
   }
 
   public async browseAttractions() {
-    console.log("Appel du contrôleur des attractions");
-    const attractions = await this.attractionRepository.findAll(); 
-
-    this.response.render("pages/attractions.ejs");
+    const attractions = await this.attractionRepository.findAll();
+    this.response.render("pages/attractions.ejs", { attractions: attractions });
   }
 }

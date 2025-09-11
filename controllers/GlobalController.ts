@@ -1,7 +1,15 @@
 import { Controller } from "../libs/Controller";
+import { AttractionRepository } from "../repositories/AttractionRepository";
+import { DinosaurRepository } from "../repositories/DinosaurRepository";
 
 export class GlobalController extends Controller {
-    public homepage() {       
-        this.response.render("pages/home", {});
+    public async homepage() {
+        const attractionRepository = new AttractionRepository();
+        const attractions = (await attractionRepository.findAll()).slice(0, 3);
+        const dinosaurRepository = new DinosaurRepository();
+        const dinosaurs = (await dinosaurRepository.findAll()).slice(0, 3);
+        console.log(attractions);
+        console.log(dinosaurs);        
+        this.response.render("pages/home.ejs", {attractions: attractions, dinosaurs: dinosaurs});
     }
 }
