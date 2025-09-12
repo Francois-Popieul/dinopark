@@ -1,7 +1,8 @@
 <%- include("../partials/head", { title: "Dinosaures du parc" }) %>
 
     <main class="page">
-        <h1>Page des dinosaures</h1>
+        <h1 class="section-title">Dinosaures du parc</h1>
+        <p class="section-paragraph">Découvrez les dinosaures qui vous feront frisonner tout au long de votre visite. Saurez-vous survivre à leur rencontre ?</p>
         <div class="card-container">
             <% dinosaurs.forEach((dinosaur)=> { %>
                 <a href="/dinosaurs/<%= dinosaur.id_dinosaur %>">
@@ -9,13 +10,13 @@
                         <p class="dino-card-name">
                             <%= dinosaur.dinosaur_name %>
                         </p>
-                        <img class="dino-card-image" src="/images/water-splash-zone-with-spinosaurus-dinosaur.png"
+                        <img class="dino-card-image" src="<%= dinosaur.dino_illustration_path %>"
                             alt="Illustration du <%= dinosaur.dinosaur_name %>">
                         <p class="dino-card-diet">
                             <%= dinosaur.diet %>
                         </p>
                         <p class="dino-card-description">
-                            <%= dinosaur.dinosaur_description %>
+                            <%= dinosaur.dinosaur_short_description %>
                         </p>
                     </div>
                 </a>

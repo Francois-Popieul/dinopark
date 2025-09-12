@@ -8,8 +8,6 @@ export class GlobalController extends Controller {
         const attractions = (await attractionRepository.findAll()).slice(0, 3);
         const dinosaurRepository = new DinosaurRepository();
         const dinosaurs = (await dinosaurRepository.findAll()).slice(0, 3);
-        console.log(attractions);
-        console.log(dinosaurs);        
-        this.response.render("pages/home.ejs", {attractions: attractions, dinosaurs: dinosaurs});
+        this.response.render("pages/home.ejs", { attractions: attractions, dinosaurs: dinosaurs });
     }
 }

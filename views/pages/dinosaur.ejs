@@ -1,0 +1,14 @@
+<%- include("../partials/head", { title: dinosaur.dinosaur_name }) %>
+
+    <main class="page">
+        <h1 class="section-title"><%= dinosaur.dinosaur_name %></h1>
+        <div>
+            <p class=" dino-card-description">
+                <%= dinosaur.dinosaur_long_description %>
+            </p>
+        </div>
+        <div>
+            <img src="<%= dinosaur.dino_illustration_path %>" alt="Illustration du <%= dinosaur.dinosaur_name %>">
+            <p class="dino-card-diet">Régime alimentaire : <%= dinosaur.diet %></p>
+        </div>
+    </main>

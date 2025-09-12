@@ -54,13 +54,13 @@
                             <p class="dino-card-name">
                                 <%= dinosaur.dinosaur_name %>
                             </p>
-                            <img class="dino-card-image" src="/images/water-splash-zone-with-spinosaurus-dinosaur.png"
+                            <img class="dino-card-image" src="<%= dinosaur.dino_illustration_path %>"
                                 alt="Illustration du <%= dinosaur.dinosaur_name %>">
                             <p class="dino-card-diet">
                                 <%= dinosaur.diet %>
                             </p>
                             <p class="dino-card-description">
-                                <%= dinosaur.dinosaur_description %>
+                                <%= dinosaur.dinosaur_short_description %>
                             </p>
                         </div>
                     </a>
@@ -73,8 +73,11 @@
         <hr class="section-divider">
         <section class="homepage-section">
             <h2 class="section-title">Prêt à vivre une aventure préhistorique ?</h2>
-            <p class="section-paragraph">Réservez vos billets sans attendre pour pénétrer dans un monde où les
-                dinosaures règnent en maîtres.</p>
-            <a href="/booking"><button type="button" class="blue-button">Réserver des billets</button></a>
+            <p class="section-paragraph">Découvrez où se situe le parc et réservez vos billets sans attendre pour
+                pénétrer dans un monde où les dinosaures règnent en maîtres.</p>
+            <div class="button-container">
+                <a href="/access"><button type="button" class="orange-button transparent-button">Préparer votre visite</button></a>
+                <a href="/booking"><button type="button" class="blue-button">Réserver des billets</button></a>
+            </div>
         </section>
     </main>
