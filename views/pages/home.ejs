@@ -17,6 +17,28 @@
             <h2 class="section-title">Des aventures pour tous</h2>
             <p class="section-paragraph">Que vous prévoyiez une sortie en famille, recherchiez le grand frisson ou
                 souhaitiez vivre une expérience premium, une aventure parfaite vous attend dans notre parc.</p>
+            <div class="card-container">
+                <% tickets.forEach((ticket)=> { %>
+                    <div class="ticket-card">
+                        <p class="ticket-icon">
+                            <%= ticket.icon %>
+                        </p>
+                        <p class="ticket-type">
+                            <%= ticket.ticket_type %>
+                        </p>
+                        <p class="ticket-audience">
+                            <%= ticket.audience %>
+                        </p>
+                        <p class="ticket-details">
+                            <%= ticket.details %>
+                        </p>
+                        <p class="ticket-price">
+                            <%= ticket.ticket_price %> €
+                        </p>
+                        <a href="tickets/<%= ticket.id_ticket %>"><button class="blue-button">Détails</button></a>
+                    </div>
+                    <% }); %>
+            </div>
         </section>
         <hr class="section-divider">
         <section class="homepage-section">
@@ -30,8 +52,7 @@
                             <p class="attraction-card-name">
                                 <%= attraction.attraction_name %>
                             </p>
-                            <div class="attraction-card-image"><img
-                                    src="/images/water-splash-zone-with-spinosaurus-dinosaur.png"
+                            <div class="attraction-card-image"><img src="<%= attraction.attraction_illustration_path %>"
                                     alt="Image d'illustration de <%= attraction.attraction_name %>"></div>
                             <p class="attraction-card-description">
                                 <%= attraction.attraction_description %>
@@ -76,7 +97,8 @@
             <p class="section-paragraph">Découvrez où se situe le parc et réservez vos billets sans attendre pour
                 pénétrer dans un monde où les dinosaures règnent en maîtres.</p>
             <div class="button-container">
-                <a href="/access"><button type="button" class="orange-button transparent-button">Préparer votre visite</button></a>
+                <a href="/access"><button type="button" class="orange-button transparent-button">Préparer votre
+                        visite</button></a>
                 <a href="/booking"><button type="button" class="blue-button">Réserver des billets</button></a>
             </div>
         </section>

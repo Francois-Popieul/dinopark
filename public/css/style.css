@@ -9,6 +9,7 @@
   --chart-4: rgb(255, 185, 0);
   --chart-5: rgb(254, 154, 0);
   --chart-6: rgb(229, 229, 229);
+  --chart-7: rgba(255, 255, 255, 0.3);
 }
 
 * {
@@ -28,7 +29,7 @@ a {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--chart-7);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -36,7 +37,7 @@ a {
   padding: 1rem;
   box-sizing: border-box;
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid var(--chart-7);
   border-radius: 0 0 10px 10px;
 }
 
@@ -87,6 +88,7 @@ a {
 
 .section-paragraph {
   font-size: 1.25rem;
+  margin-bottom: 2rem;
 }
 
 .button-container {
@@ -117,9 +119,11 @@ a {
   color: var(--accent);
   padding: 0.25rem;
   font-size: 1rem;
+  font-weight: 600;
   border: none;
   border-radius: 5px;
-  width: 200px;
+  width: 220px;
+  margin: 0.5rem auto;
 }
 .blue-button:hover,
 .transparent-button:hover,
@@ -166,6 +170,47 @@ a {
   flex-wrap: nowrap;
 }
 
+.ticket-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: solid 2px var(--chart-6);
+  border-radius: 10px;
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  padding: 0.5rem;
+  background-color: rgba(229, 229, 229, 0.2);
+  box-shadow: 10px 5px 5px var(--chart-6);
+}
+
+.ticket-icon {
+  font-size: 3rem;
+}
+
+.ticket-type {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.ticket-audience {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.ticket-details {
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.ticket-price {
+  font-size: 1.4rem;
+  background-color: var(--chart-4);
+  width: 75px;
+  text-align: center;
+}
+
 .dino-card,
 .attraction-card {
   display: flex;
@@ -191,6 +236,7 @@ a {
   font-size: 2rem;
   font-weight: 600;
   color: var(--chart-2);
+  text-align: center;
 }
 
 .dino-card-image,
@@ -220,6 +266,54 @@ a {
   margin-bottom: 1rem;
 }
 
+.dinosaur-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dinosaur-page-name {
+  font-size: 2rem;
+  color: var(--chart-2);
+  text-align: left;
+  margin: 2rem;
+}
+
+.dinosaur-page-description {
+  font-size: 1.5rem;
+  color: var(--chart-3);
+  text-align: left;
+  margin: 2rem;
+}
+
+.dinosaur-page-illustration {
+  width: 75%;
+  height: auto;
+  margin: 2rem;
+}
+
+.dinosaur-page-diet {
+  font-size: 1.5rem;
+  color: var(--chart-3);
+  text-align: left;
+  margin: 2rem;
+}
+
+.diet-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: left;
+  gap: 10px;
+  font-size: 1.25rem;
+  margin: 1rem;
+}
+
+.diet-container button {
+  margin: 0;
+}
+
 @media screen and (min-width: 780px) {
   .navbar-links {
     visibility: visible;
@@ -245,11 +339,19 @@ a {
   }
   .section-title,
   .section-paragraph {
-    margin: 0 5rem;
+    margin: 0 5rem 2rem;
   }
   .card-container {
     flex-direction: row;
     flex-wrap: wrap;
+  }
+  .dinosaur-page-illustration {
+    width: 33%;
+  }
+  .diet-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
   }
 }
 

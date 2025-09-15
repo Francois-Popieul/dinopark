@@ -2,7 +2,16 @@
 
     <main class="page">
         <h1 class="section-title">Dinosaures du parc</h1>
-        <p class="section-paragraph">Découvrez les dinosaures qui vous feront frisonner tout au long de votre visite. Saurez-vous survivre à leur rencontre ?</p>
+        <p class="section-paragraph">Découvrez les dinosaures qui vous feront frissonner tout au long de votre visite.
+            Saurez-vous survivre à leur rencontre ?</p>
+        <div class="diet-container">
+            <p>Filtrer :</p>
+            <% diets.forEach((diet)=> { %>
+                <a href=""><button class="transparent-button orange-button">
+                        <%= diet %>
+                    </button></a>
+                <% }); %>
+        </div>
         <div class="card-container">
             <% dinosaurs.forEach((dinosaur)=> { %>
                 <a href="/dinosaurs/<%= dinosaur.id_dinosaur %>">

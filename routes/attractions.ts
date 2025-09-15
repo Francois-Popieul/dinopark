@@ -8,4 +8,10 @@ attractionRouter.get("/", (request, response) => {
   controller.browseAttractions();
 });
 
+attractionRouter.get("/:id", (request, response) => {
+  console.log(request);  
+  const controller = new AttractionController(request, response);
+  controller.findAttractionById();
+});
+
 export default attractionRouter;

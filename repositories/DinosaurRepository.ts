@@ -16,7 +16,23 @@ export class DinosaurRepository extends Repository {
       });
 
       return data;
-    } catch (error) {
+    }
+    catch (error) {
+      return [];
+    }
+  }
+
+  async findAllDiets(): Promise<string[]> {
+    const query = {
+      name: "fetch-all-dinosaur-diet",
+      text: `SELECT DISTINCT diet FROM dinosaur`,
+    };
+
+    try {
+      const result = await this.pool.query(query);
+      return result.rows.map(row => row.diet);
+    }
+    catch (error) {
       return [];
     }
   }
@@ -30,7 +46,7 @@ export class DinosaurRepository extends Repository {
 
     try {
       const result = await this.pool.query(query);
-      
+
       const dinosaur = new Dinosaur(
         result.rows[0].id_dinosaur,
         result.rows[0].dinosaur_name,
@@ -39,10 +55,9 @@ export class DinosaurRepository extends Repository {
         result.rows[0].dinosaur_long_description,
         result.rows[0].dino_illustration_path
       );
-      
+
       return dinosaur;
     }
-    
     catch (error) {
       return null;
     }

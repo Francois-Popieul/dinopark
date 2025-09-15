@@ -1,0 +1,15 @@
+<%- include("../partials/head", { title: attraction.attraction_name }) %>
+
+    <main class="page">
+        <div class="attraction-page-container">
+            <h1>
+                <%= attraction.attraction_name %>
+            </h1>
+
+            <div class="attraction-page-illustration"><img src="<%= attraction.attraction_illustration_path %>"
+                    alt="Image d'illustration de <%= attraction.attraction_name %>"></div>
+            <p class="attraction-page-description">
+                <%= attraction.attraction_description %>
+            </p>
+        </div>
+    </main>
