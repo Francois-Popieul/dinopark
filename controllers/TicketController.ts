@@ -15,13 +15,15 @@ export class TicketController extends Controller {
   public async browseTickets() {
     const tickets = await this.ticketRepository.findAll();
     console.log(tickets);
-    
+
     this.response.render("pages/attractions.ejs", { tickets: tickets });
   }
 
   public async findTicketById() {
     const id: number = parseInt(this.request.params.id);
     const ticket = await this.ticketRepository.findById(id);
-    this.response.render("pages/ticket.ejs", { ticket: ticket });
+    const attractions = await this.ticketRepository.findTicketAttractions(id);
+    console.log(attractions);    
+    this.response.render("pages/ticket.ejs", { ticket: ticket, attractions: attractions });
   }
 }

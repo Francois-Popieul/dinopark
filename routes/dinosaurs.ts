@@ -9,9 +9,13 @@ dinosaurRouter.get("/", (request, response) => {
 });
 
 dinosaurRouter.get("/:id", (request, response) => {
-  console.log(request);  
   const controller = new DinosaurController(request, response);
   controller.findDinosaurById();
+});
+
+dinosaurRouter.get("/diet/:filteredDiet", (request, response) => {
+  const controller = new DinosaurController(request, response);
+  controller.findDinosaurByDiet();
 });
 
 export default dinosaurRouter;

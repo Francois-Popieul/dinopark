@@ -62,4 +62,25 @@ export class DinosaurRepository extends Repository {
       return null;
     }
   }
+
+  async findAllDinosaurByDiet(filteredDiet: string): Promise<Dinosaur[]> {
+    const query = {
+      name: "fetch-all-dinosaurs-by-diet",
+      text: `SELECT * FROM dinosaur WHERE diet = $1`,
+      values: [filteredDiet],
+    };
+
+    try {
+      const result = await this.pool.query(query);
+
+      const data = result.rows.map((row) => {
+        return new Dinosaur(row.id_dinosaur, row.dinosaur_name, row.diet, row.dinosaur_short_description, row.dinosaur_long_description, row.dino_illustration_path);
+      });
+
+      return data;
+    }
+    catch (error) {
+      return [];
+    }
+  }
 }

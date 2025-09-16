@@ -97,6 +97,12 @@ a {
   gap: 1rem;
 }
 
+.ticket-page-button-container {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem auto;
+}
+
 .park-banner-container {
   display: block;
   width: 100%;
@@ -266,13 +272,23 @@ a {
   margin-bottom: 1rem;
 }
 
-.dinosaur-page-container {
+.attraction-page-container,
+.dinosaur-page-container,
+.ticket-page-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: left;
 }
 
+.ticket-page-container {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.ticket-page-name,
+.attraction-page-name,
 .dinosaur-page-name {
   font-size: 2rem;
   color: var(--chart-2);
@@ -280,6 +296,12 @@ a {
   margin: 2rem;
 }
 
+.ticket-page-name {
+  text-align: center;
+}
+
+.ticket-page-description,
+.attraction-page-description,
 .dinosaur-page-description {
   font-size: 1.5rem;
   color: var(--chart-3);
@@ -287,6 +309,20 @@ a {
   margin: 2rem;
 }
 
+.ticket-page-description {
+  text-align: center;
+  margin: 0.25rem 2rem 1rem 2rem;
+}
+
+.ticket-page-attraction-list {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--chart-3);
+  text-align: left;
+  margin: 2rem;
+}
+
+.attraction-page-illustration,
 .dinosaur-page-illustration {
   width: 75%;
   height: auto;
@@ -345,6 +381,7 @@ a {
     flex-direction: row;
     flex-wrap: wrap;
   }
+  .attraction-page-illustration,
   .dinosaur-page-illustration {
     width: 33%;
   }

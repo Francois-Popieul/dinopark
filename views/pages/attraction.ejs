@@ -2,11 +2,10 @@
 
     <main class="page">
         <div class="attraction-page-container">
-            <h1>
+            <h1 class="attraction-page-name">
                 <%= attraction.attraction_name %>
             </h1>
-
-            <div class="attraction-page-illustration"><img src="<%= attraction.attraction_illustration_path %>"
+            <div><img class="attraction-page-illustration" src="<%= attraction.attraction_illustration_path %>"
                     alt="Image d'illustration de <%= attraction.attraction_name %>"></div>
             <p class="attraction-page-description">
                 <%= attraction.attraction_description %>
