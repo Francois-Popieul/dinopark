@@ -23,7 +23,7 @@ export class TicketController extends Controller {
     const id: number = parseInt(this.request.params.id);
     const ticket = await this.ticketRepository.findById(id);
     const attractions = await this.ticketRepository.findTicketAttractions(id);
-    console.log(attractions);    
+    console.log(attractions);
     this.response.render("pages/ticket.ejs", { ticket: ticket, attractions: attractions });
   }
 }

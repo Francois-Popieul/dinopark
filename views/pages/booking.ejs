@@ -1,0 +1,61 @@
+<%- include("../partials/head", { title: "DinoPark - Page de réservation" }) %>
+
+<main class="page">
+  <section class="booking-step-container">
+    <div class="booking-step">
+      <p id="booking-first-step" class="active-step">1</p>
+      <p class="step-name">Choix des billets</p>
+    </div>
+    <div class="booking-step">
+      <p id="booking-second-step" class="inactive-step">2</p>
+      <p class="step-name">Informations personnelles</p>
+    </div>
+    <div class="booking-step">
+      <p id="booking-third-step" class="inactive-step">3</p>
+      <p class="step-name">Paiement</p>
+    </div>
+  </section>
+  <section class="booking-page-flex-container">
+    <section class="booking-page-left-column">
+      <h1>Réservez votre aventure</h1>
+      <p class="booking-page-paragraph">Sélectionnez la date de votre visite et choisissez le nombre de billets adapté pour votre groupe</p>
+      <div class="booking-date-container">
+        <h3>Sélectionner la date de la visite</h3>
+        <p class="booking-page-paragraph">Indiquez à quelle date vous souhaitez visiter DinoPark.</p>
+        <input id="booking-date" class="booking-page-date-input" type="date" required>
+      </div>
+      <div>
+        <h2>Choisissez vos billets</h2>
+        <% tickets.forEach((ticket)=> { %>
+        <div class="booking-page-ticket-card">
+          <div class="booking-page-ticket-card-details">
+            <p class="ticket-bold-name">
+              <%= ticket.icon %> <span class="ticket-name"><%= ticket.ticket_type %></span>
+            </p>
+            <p>
+              <%= ticket.audience %>
+            </p>
+            <p>
+              <span class="bold"><span class="ticket-price"><%= ticket.ticket_price %></span> €</span>/personne
+            </p>
+          </div>
+          <div class="ticket-quantity-button-container">
+            <button class="decrease-button" type="button">-</button>
+            <p class="ticket-quantity">0</p>
+            <button class="increase-button" type="button">+</button>
+          </div>
+        </div>
+        <% }); %>
+      </div>
+      <div></div>
+    </section>
+    <section class="booking-page-right-column">
+      <div class="summary-card">
+        <h2 class="summary-card-title">Résumé de la commande</h2>
+        <hr class="section-divider">
+        <p>Aucun billet sélectionné</p>
+      </div>
+    </section>
+  </section>
+</main>
+<%- include("../partials/footer") %>

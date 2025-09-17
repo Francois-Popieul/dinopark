@@ -26,7 +26,7 @@ export class DinosaurController extends Controller {
 
   public async findDinosaurByDiet() {
     const diet: string = this.request.params.filteredDiet;
-    console.log(diet);    
+    console.log(diet);
     const dinosaurs = await this.dinosaurRepository.findAllDinosaurByDiet(diet);
     const diets = await this.dinosaurRepository.findAllDiets();
     this.response.render("pages/dinosaurs.ejs", { dinosaurs: dinosaurs, diets: diets });

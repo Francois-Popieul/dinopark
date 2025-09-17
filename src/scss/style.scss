@@ -56,7 +56,69 @@ a {
     width: 100%;
     margin: 0 auto 1rem;
     padding-top: 80px;
-    /* Ajuste selon la hauteur réelle de ta navbar */
+    box-sizing: border-box;
+}
+
+.booking-page-flex-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.booking-page-date-input {
+    width: 100%;
+    font-size: 1.3rem;
+}
+
+.ticket-bold-name {
+    font-size: larger;
+    font-weight: 600;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.summary-card {
+    background-color: var(--chart-6);
+    border-radius: 10px;
+    padding: 1rem;
+    width: 100%;
+    margin: 1rem;
+    box-sizing: border-box;
+}
+
+.booking-page-paragraph {
+    font-size: 1.3rem;
+    width: 100%;
+}
+
+.summary-card-title {
+    font-size: 1.5rem;
+    margin: 1rem auto;
+}
+
+.booking-page-left-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: left;
+    gap: 10px;
+    width: 90%;
+    margin: 0 5%;
+    box-sizing: border-box;
+}
+
+.booking-page-right-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: left;
+    gap: 10px;
+    margin: 0 5%;
+    width: 90%;
     box-sizing: border-box;
 }
 
@@ -73,6 +135,7 @@ a {
 
 .homepage-section {
     background: none;
+    margin-top: 5rem;
 }
 
 .section-title,
@@ -211,8 +274,9 @@ a {
 .ticket-price {
     font-size: 1.4rem;
     background-color: var(--chart-4);
-    width: 75px;
+    width: fit-content;
     text-align: center;
+    padding: 0.25rem 0.5rem;
 }
 
 .dino-card,
@@ -348,6 +412,129 @@ a {
     margin: 0;
 }
 
+.filter-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 1.25rem;
+    margin: 1rem;
+}
+
+.booking-step-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 10px;
+    margin: 2rem;
+    box-sizing: border-box;
+}
+
+.booking-step {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    gap: 10px;
+}
+
+.active-step {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--chart-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.inactive-step {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--chart-6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.step-name {
+    font-size: 1.25rem;
+}
+
+.booking-date-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--chart-6);
+    border-radius: 10px;
+    width: 100%;
+    padding: 1rem;
+    margin: 1rem auto;
+    font-size: 1.5rem;
+    box-sizing: border-box;
+}
+
+.booking-page-ticket-card {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: left;
+    font-size: 1.5rem;
+    background-color: var(--chart-6);
+    margin: 1rem auto;
+    border-radius: 10px;
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.booking-page-ticket-card-details {
+    margin: 1rem 2rem;
+    width: 75%;
+}
+
+.ticket-quantity {
+    font-size: 1.5rem;
+}
+
+.decrease-button {
+    font-size: 1.5rem;
+}
+
+.increase-button {
+    font-size: 1.5rem;
+}
+
+.ticket-quantity-button-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: right;
+    font-size: 1.5rem;
+}
+
+.ticket-quantity-button-container button {
+    font-size: 1.5rem;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: var(--background);
+
+    &:hover {
+        background-color: var(--chart-4);
+    }
+}
+
 @media screen and (min-width: 780px) {
     .navbar-links {
         visibility: visible;
@@ -370,7 +557,6 @@ a {
         height: auto;
         object-fit: cover;
     }
-
 
     .button-container {
         flex-direction: row;
@@ -396,5 +582,17 @@ a {
         flex-direction: row;
         align-items: center;
         justify-content: center;
+    }
+
+    .booking-page-flex-container {
+        flex-direction: row;
+    }
+
+    .booking-page-left-column {
+        width: 60%;
+    }
+
+    .booking-page-right-column {
+        width: 40%;
     }
 }

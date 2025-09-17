@@ -1,20 +1,20 @@
 <%- include("../partials/head", { title: dinosaur.dinosaur_name }) %>
 
-    <main class="page">
-        <div class="dinosaur-page-container">
-            <h1 class="dinosaur-page-name">
-                <%= dinosaur.dinosaur_name %>
-            </h1>
-            <div>
-                <img class="dinosaur-page-illustration" src="<%= dinosaur.dino_illustration_path %>"
-                    alt="Illustration du <%= dinosaur.dinosaur_name %>">
-                <p class="dinosaur-page-diet">Régime alimentaire : <%= dinosaur.diet %>
-                </p>
-            </div>
-            <div>
-                <p class=" dinosaur-page-description">
-                    <%= dinosaur.dinosaur_long_description %>
-                </p>
-            </div>
-        </div>
-    </main>
+<main class="page">
+  <div class="dinosaur-page-container">
+    <h1 class="dinosaur-page-name">
+      <%= dinosaur.dinosaur_name %>
+    </h1>
+    <div>
+      <img class="dinosaur-page-illustration" src="<%= dinosaur.dino_illustration_path %>" alt="Illustration du <%= dinosaur.dinosaur_name %>">
+      <p class="dinosaur-page-diet">Régime alimentaire : <%= dinosaur.diet %>
+      </p>
+    </div>
+    <div>
+      <p class=" dinosaur-page-description">
+        <%= dinosaur.dinosaur_long_description %>
+      </p>
+    </div>
+  </div>
+</main>
+<%- include("../partials/footer") %>

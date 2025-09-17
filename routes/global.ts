@@ -5,7 +5,7 @@ const globalRouter = Router();
 
 // HOMEPAGE
 globalRouter.get("/", (request, response) => {
-  const controller = new GlobalController(request, response);  
+  const controller = new GlobalController(request, response);
   controller.homepage();
 });
 

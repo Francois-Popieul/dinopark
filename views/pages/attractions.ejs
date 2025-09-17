@@ -1,23 +1,23 @@
 <%- include("../partials/head", { title: "Attractions du parc" }) %>
 
-    <main class="page">
-        <h1 class="section-title">Attractions du parc</h1>
-        <p class="section-paragraph">Découvrez les attractions du parc qui vous feront vibrer de joie ou mettront votre
-            courage à l'épreuve.</p>
-        <div class="card-container">
-            <% attractions.forEach((attraction)=> { %>
-                <a href="attractions/<%= attraction.id_attraction %>">
-                    <div class="attraction-card">
-                        <p class="attraction-card-name">
-                            <%= attraction.attraction_name %>
-                        </p>
-                        <div class="attraction-card-image"><img src="<%= attraction.attraction_illustration_path %>"
-                                alt="Image d'illustration de <%= attraction.attraction_name %>"></div>
-                        <p class="attraction-card-description">
-                            <%= attraction.attraction_description %>
-                        </p>
-                    </div>
-                </a>
-                <% }); %>
-        </div>
-    </main>
+<main class="page">
+  <h1 class="section-title">Attractions du parc</h1>
+  <p class="section-paragraph">Découvrez les attractions du parc qui vous feront vibrer de joie ou mettront votre
+    courage à l'épreuve.</p>
+  <div class="card-container">
+    <% attractions.forEach((attraction)=> { %>
+    <a href="attractions/<%= attraction.id_attraction %>">
+      <div class="attraction-card">
+        <p class="attraction-card-name">
+          <%= attraction.attraction_name %>
+        </p>
+        <div class="attraction-card-image"><img src="<%= attraction.attraction_illustration_path %>" alt="Image d'illustration de <%= attraction.attraction_name %>"></div>
+        <p class="attraction-card-description">
+          <%= attraction.attraction_description %>
+        </p>
+      </div>
+    </a>
+    <% }); %>
+  </div>
+</main>
+<%- include("../partials/footer") %>

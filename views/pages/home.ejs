@@ -1,105 +1,104 @@
 <%- include("../partials/head", { title: "DinoPark - Page d'accueil" }) %>
 
-    <main class="page">
-        <section class="homepage-main-section">
-            <h1 class="section-title">Bienvenue à <span class="blue-text">DinoPark</span></h1>
-            <p class="section-paragraph">Entrez dans un monde peuplé de géants préhistoriques. Découvrez des attractions
-                palpitantes, des activités éducatives et des aventures inoubliables pour toute la famille.</p>
+<main class="page">
+  <section class="homepage-main-section">
+    <h1 class="section-title">Bienvenue à <span class="blue-text">DinoPark</span></h1>
+    <p class="section-paragraph">Entrez dans un monde peuplé de géants préhistoriques. Découvrez des attractions
+      palpitantes, des activités éducatives et des aventures inoubliables pour toute la famille.</p>
 
-            <div class="button-container">
-                <a href="/booking"><button type="button" class="blue-button">Réserver votre aventure</button></a>
-                <a href="/attractions"><button type="button" class="orange-button transparent-button">Découvrir les
-                        attractions</button></a>
-            </div>
-            <div class="park-banner-container"><img src="/images/dinosaur-theme-park-entrance-with-t-rex-statue-and.png"
-                    alt="Entrée de DinoPark"></div>
-
-            <h2 class="section-title">Des aventures pour tous</h2>
-            <p class="section-paragraph">Que vous prévoyiez une sortie en famille, recherchiez le grand frisson ou
-                souhaitiez vivre une expérience premium, une aventure parfaite vous attend dans notre parc.</p>
-            <div class="card-container">
-                <% tickets.forEach((ticket)=> { %>
-                    <div class="ticket-card">
-                        <p class="ticket-icon">
-                            <%= ticket.icon %>
-                        </p>
-                        <p class="ticket-type">
-                            <%= ticket.ticket_type %>
-                        </p>
-                        <p class="ticket-audience">
-                            <%= ticket.audience %>
-                        </p>
-                        <p class="ticket-details">
-                            <%= ticket.details %>
-                        </p>
-                        <p class="ticket-price">
-                            <%= ticket.ticket_price %> €
-                        </p>
-                        <a href="tickets/<%= ticket.id_ticket %>"><button class="blue-button">Détails</button></a>
-                    </div>
-                    <% }); %>
-            </div>
-        </section>
-        <hr class="section-divider">
-        <section class="homepage-section">
-            <h2 class="section-title">Attractions en vedette</h2>
-            <p class="section-paragraph">Découvrez nos attractions les plus populaires redonnant vie au monde
-                préhistorique.</p>
-            <div class="card-container">
-                <% attractions.forEach((attraction)=> { %>
-                    <a href="attractions/<%= attraction.id_attraction %>">
-                        <div class="attraction-card">
-                            <p class="attraction-card-name">
-                                <%= attraction.attraction_name %>
-                            </p>
-                            <div class="attraction-card-image"><img src="<%= attraction.attraction_illustration_path %>"
-                                    alt="Image d'illustration de <%= attraction.attraction_name %>"></div>
-                            <p class="attraction-card-description">
-                                <%= attraction.attraction_description %>
-                            </p>
-                        </div>
-                    </a>
-                    <% }); %>
-            </div>
-            <a href="/attractions"><button type="button" class="orange-button transparent-button">Voir toutes les
-                    attractions</button></a>
-        </section>
-        <hr class="section-divider">
-        <section class="homepage-section">
-            <h2 class="section-title">Dinosaures en vedette</h2>
-            <p class="section-paragraph">Découvrez certains des dinosaures peuplant notre parc.</p>
-            <div class="card-container">
-                <% dinosaurs.forEach((dinosaur)=> { %>
-                    <a href="/dinosaurs/<%= dinosaur.id_dinosaur %>">
-                        <div class="dino-card">
-                            <p class="dino-card-name">
-                                <%= dinosaur.dinosaur_name %>
-                            </p>
-                            <img class="dino-card-image" src="<%= dinosaur.dino_illustration_path %>"
-                                alt="Illustration du <%= dinosaur.dinosaur_name %>">
-                            <p class="dino-card-diet">
-                                <%= dinosaur.diet %>
-                            </p>
-                            <p class="dino-card-description">
-                                <%= dinosaur.dinosaur_short_description %>
-                            </p>
-                        </div>
-                    </a>
-                    <% }); %>
-            </div>
-            </div>
-            <a href="/dinosaurs"><button type="button" class="orange-button transparent-button">Voir tous les
-                    dinosaures</button></a>
-        </section>
-        <hr class="section-divider">
-        <section class="homepage-section">
-            <h2 class="section-title">Prêt à vivre une aventure préhistorique ?</h2>
-            <p class="section-paragraph">Découvrez où se situe le parc et réservez vos billets sans attendre pour
-                pénétrer dans un monde où les dinosaures règnent en maîtres.</p>
-            <div class="button-container">
-                <a href="/access"><button type="button" class="orange-button transparent-button">Préparer votre
-                        visite</button></a>
-                <a href="/booking"><button type="button" class="blue-button">Réserver des billets</button></a>
-            </div>
-        </section>
-    </main>
+    <div class="button-container">
+      <a href="/booking"><button type="button" class="blue-button">Réserver votre aventure</button></a>
+      <a href="/attractions"><button type="button" class="orange-button transparent-button">Découvrir les
+          attractions</button></a>
+    </div>
+    <div class="park-banner-container"><img src="/images/dinosaur-theme-park-entrance-with-t-rex-statue-and.png" alt="Entrée de DinoPark"></div>
+    <section class="homepage-section">
+      <h2 class="section-title">Des aventures pour tous</h2>
+      <p class="section-paragraph">Que vous prévoyiez une sortie en famille, recherchiez le grand frisson ou
+        souhaitiez vivre une expérience premium, une aventure parfaite vous attend dans notre parc.</p>
+      <div class="card-container">
+        <% tickets.forEach((ticket)=> { %>
+        <div class="ticket-card">
+          <p class="ticket-icon">
+            <%= ticket.icon %>
+          </p>
+          <p class="ticket-type">
+            <%= ticket.ticket_type %>
+          </p>
+          <p class="ticket-audience">
+            <%= ticket.audience %>
+          </p>
+          <p class="ticket-details">
+            <%= ticket.details %>
+          </p>
+          <p class="ticket-price">
+            dès <%= ticket.ticket_price %> €
+          </p>
+          <a href="tickets/<%= ticket.id_ticket %>"><button class="blue-button">Détails</button></a>
+        </div>
+        <% }); %>
+      </div>
+    </section>
+  </section>
+  <hr class="section-divider">
+  <section class="homepage-section">
+    <h2 class="section-title">Attractions en vedette</h2>
+    <p class="section-paragraph">Découvrez nos attractions les plus populaires redonnant vie au monde
+      préhistorique.</p>
+    <div class="card-container">
+      <% attractions.forEach((attraction)=> { %>
+      <a href="attractions/<%= attraction.id_attraction %>">
+        <div class="attraction-card">
+          <p class="attraction-card-name">
+            <%= attraction.attraction_name %>
+          </p>
+          <div class="attraction-card-image"><img src="<%= attraction.attraction_illustration_path %>" alt="Image d'illustration de <%= attraction.attraction_name %>"></div>
+          <p class="attraction-card-description">
+            <%= attraction.attraction_description %>
+          </p>
+        </div>
+      </a>
+      <% }); %>
+    </div>
+    <a href="/attractions"><button type="button" class="orange-button transparent-button">Voir toutes les
+        attractions</button></a>
+  </section>
+  <hr class="section-divider">
+  <section class="homepage-section">
+    <h2 class="section-title">Dinosaures en vedette</h2>
+    <p class="section-paragraph">Découvrez certains des dinosaures peuplant notre parc.</p>
+    <div class="card-container">
+      <% dinosaurs.forEach((dinosaur)=> { %>
+      <a href="/dinosaurs/<%= dinosaur.id_dinosaur %>">
+        <div class="dino-card">
+          <p class="dino-card-name">
+            <%= dinosaur.dinosaur_name %>
+          </p>
+          <img class="dino-card-image" src="<%= dinosaur.dino_illustration_path %>" alt="Illustration du <%= dinosaur.dinosaur_name %>">
+          <p class="dino-card-diet">
+            <%= dinosaur.diet %>
+          </p>
+          <p class="dino-card-description">
+            <%= dinosaur.dinosaur_short_description %>
+          </p>
+        </div>
+      </a>
+      <% }); %>
+    </div>
+    </div>
+    <a href="/dinosaurs"><button type="button" class="orange-button transparent-button">Voir tous les
+        dinosaures</button></a>
+  </section>
+  <hr class="section-divider">
+  <section class="homepage-section">
+    <h2 class="section-title">Prêts à vivre une aventure (pré)historique ?</h2>
+    <p class="section-paragraph">Découvrez où se situe le parc et réservez vos billets sans attendre pour
+      pénétrer dans un monde où les dinosaures règnent en maîtres.</p>
+    <div class="button-container">
+      <a href="/access"><button type="button" class="orange-button transparent-button">Préparer votre
+          visite</button></a>
+      <a href="/booking"><button type="button" class="blue-button">Réserver des billets</button></a>
+    </div>
+  </section>
+</main>
+<%- include("../partials/footer") %>

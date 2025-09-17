@@ -9,7 +9,7 @@ attractionRouter.get("/", (request, response) => {
 });
 
 attractionRouter.get("/:id", (request, response) => {
-  console.log(request);  
+  console.log(request);
   const controller = new AttractionController(request, response);
   controller.findAttractionById();
 });

@@ -9,7 +9,7 @@ ticketRouter.get("/", (request, response) => {
 });
 
 ticketRouter.get("/:id", (request, response) => {
-  console.log(request);  
+  console.log(request);
   const controller = new TicketController(request, response);
   controller.findTicketById();
 });

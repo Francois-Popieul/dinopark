@@ -1,34 +1,37 @@
 <%- include("../partials/head", { title: "Dinosaures du parc" }) %>
 
-    <main class="page">
-        <h1 class="section-title">Dinosaures du parc</h1>
-        <p class="section-paragraph">Découvrez les dinosaures qui vous feront frissonner tout au long de votre visite.
-            Saurez-vous survivre à leur rencontre ?</p>
-        <div class="diet-container">
-            <p>Filtrer :</p>
-            <% diets.forEach((diet)=> { %>
-                <a href="/dinosaurs/diet/<%= diet %>"><button class="transparent-button orange-button">
-                        <%= diet %>
-                    </button></a>
-                <% }); %>
-        </div>
-        <div class="card-container">
-            <% dinosaurs.forEach((dinosaur)=> { %>
-                <a href="/dinosaurs/<%= dinosaur.id_dinosaur %>">
-                    <div class="dino-card">
-                        <p class="dino-card-name">
-                            <%= dinosaur.dinosaur_name %>
-                        </p>
-                        <img class="dino-card-image" src="<%= dinosaur.dino_illustration_path %>"
-                            alt="Illustration du <%= dinosaur.dinosaur_name %>">
-                        <p class="dino-card-diet">
-                            <%= dinosaur.diet %>
-                        </p>
-                        <p class="dino-card-description">
-                            <%= dinosaur.dinosaur_short_description %>
-                        </p>
-                    </div>
-                </a>
-                <% }); %>
-        </div>
-    </main>
+<main class="page">
+  <h1 class="section-title">Dinosaures du parc</h1>
+  <p class="section-paragraph">Découvrez les dinosaures qui vous feront frissonner tout au long de votre visite.
+    Saurez-vous survivre à leur rencontre ?</p>
+  <div class="diet-container">
+    <p>Filtrer :</p>
+    <div class="filter-container">
+      <a href="/dinosaurs"><button class="transparent-button orange-button">Tous</button></a>
+      <% diets.forEach((diet)=> { %>
+      <a href="/dinosaurs/diet/<%= diet %>"><button class="transparent-button orange-button">
+          <%= diet %>
+        </button></a>
+      <% }); %>
+    </div>
+  </div>
+  <div class="card-container">
+    <% dinosaurs.forEach((dinosaur)=> { %>
+    <a href="/dinosaurs/<%= dinosaur.id_dinosaur %>">
+      <div class="dino-card">
+        <p class="dino-card-name">
+          <%= dinosaur.dinosaur_name %>
+        </p>
+        <img class="dino-card-image" src="<%= dinosaur.dino_illustration_path %>" alt="Illustration du <%= dinosaur.dinosaur_name %>">
+        <p class="dino-card-diet">
+          <%= dinosaur.diet %>
+        </p>
+        <p class="dino-card-description">
+          <%= dinosaur.dinosaur_short_description %>
+        </p>
+      </div>
+    </a>
+    <% }); %>
+  </div>
+</main>
+<%- include("../partials/footer") %>

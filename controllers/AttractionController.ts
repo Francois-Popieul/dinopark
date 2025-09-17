@@ -15,7 +15,7 @@ export class AttractionController extends Controller {
   public async browseAttractions() {
     const attractions = await this.attractionRepository.findAll();
     console.log(attractions);
-    
+
     this.response.render("pages/attractions.ejs", { attractions: attractions });
   }
 
