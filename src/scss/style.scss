@@ -22,6 +22,17 @@ a {
     color: inherit;
 }
 
+ul {
+    list-style-type: none;
+}
+
+input:invalid {
+    background-color: ivory;
+    border: none;
+    outline: 2px solid red;
+    border-radius: 5px;
+}
+
 .navbar {
     position: fixed;
     top: 0;
@@ -59,7 +70,9 @@ a {
     box-sizing: border-box;
 }
 
-.booking-page-flex-container {
+.first-booking-page,
+.second-booking-page,
+.third-booking-page {
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -81,12 +94,20 @@ a {
     font-weight: 600;
 }
 
+.centering {
+    margin: 0 auto;
+}
+
+.hidden {
+    display: none;
+}
+
 .summary-card {
     background-color: var(--chart-6);
     border-radius: 10px;
     padding: 1rem;
     width: 100%;
-    margin: 1rem;
+    margin: 1rem auto;
     box-sizing: border-box;
 }
 
@@ -535,6 +556,18 @@ a {
     }
 }
 
+.fieldset {
+    padding: 1.25rem;
+    margin: 1rem auto;
+    width: 500px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
 @media screen and (min-width: 780px) {
     .navbar-links {
         visibility: visible;
@@ -584,7 +617,7 @@ a {
         justify-content: center;
     }
 
-    .booking-page-flex-container {
+    .first-booking-page {
         flex-direction: row;
     }
 
