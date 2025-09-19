@@ -16,6 +16,9 @@ const secondBookingPage = document.getElementById("second-booking-page");
 const thirdBookingPage = document.getElementById("third-booking-page");
 const firstName = document.getElementById("firstname") as HTMLInputElement;
 const surName = document.getElementById("surname") as HTMLInputElement;
+const finalSummary: HTMLElement | null = document.getElementById("final-summary");
+
+let orderSummaryHTML: string = "";
 
 // Set booking date constraint
 if (dateInput) { dateInput.min = getConstraintDate("complete-date"); }
@@ -48,9 +51,14 @@ ticketCards.forEach((card) => {
 
 // Switch to booking step 2 on button click
 
-bookingStepOneButton.addEventListener("click", () => {
-    if (firstBookingPage && secondBookingPage && bookingStepOneButton && bookingFirstStep && bookingSecondStep &&
-        dateInput.value) {
+bookingStepOneButton.addEventListener("click", (event) => {
+    const bookingSummary = document.getElementById("booking-summary");
+    console.log(bookingSummary?.innerText);
+    if (bookingSummary && bookingSummary.innerText == "Aucun billet sélectionné") {
+        event.preventDefault();
+        return;
+    }
+    else if (firstBookingPage && secondBookingPage && bookingStepOneButton && bookingFirstStep && bookingSecondStep && dateInput.value) {
         bookingFirstStep.classList.remove("active-step");
         bookingFirstStep.classList.add("inactive-step");
         bookingSecondStep.classList.remove("inactive-step");
@@ -71,6 +79,9 @@ bookingStepTwoButton.addEventListener("click", () => {
         bookingThirdStep.classList.add("active-step");
         secondBookingPage.classList.toggle("hidden");
         thirdBookingPage.classList.toggle("hidden");
+        if (finalSummary) {
+            finalSummary.innerHTML = orderSummaryHTML;
+        }
     }
 })
 
@@ -112,8 +123,13 @@ function updateBookingSummary() {
     });
 
     summaryHTML += `</ul><br><p><strong>Total : ${totalAmount.toFixed(2)} €</strong></p>`;
-    if (totalAmount > 0) { bookingSummary.innerHTML = summaryHTML; }
-    else { bookingSummary.innerHTML = "Aucun billet sélectionné"; }
+    if (totalAmount > 0) {
+        bookingSummary.innerHTML = summaryHTML;
+        orderSummaryHTML = summaryHTML;
+    }
+    else {
+        bookingSummary.innerHTML = "Aucun billet sélectionné";
+    }
 }
 
 function getConstraintDate(length?: string): string {

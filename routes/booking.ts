@@ -9,4 +9,9 @@ bookingRouter.get("/", (request, response) => {
     controller.bookingpage();
 });
 
+bookingRouter.post("/", (request, response) => {
+    const controller = new BookingController(request, response);
+    controller.saveBooking();
+});
+
 export default bookingRouter;

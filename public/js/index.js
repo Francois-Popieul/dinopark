@@ -18,6 +18,8 @@
     const thirdBookingPage = document.getElementById("third-booking-page");
     const firstName = document.getElementById("firstname");
     const surName = document.getElementById("surname");
+    const finalSummary = document.getElementById("final-summary");
+    let orderSummaryHTML = "";
     // Set booking date constraint
     if (dateInput) {
         dateInput.min = getConstraintDate("complete-date");
@@ -46,9 +48,14 @@
         });
     });
     // Switch to booking step 2 on button click
-    bookingStepOneButton.addEventListener("click", () => {
-        if (firstBookingPage && secondBookingPage && bookingStepOneButton && bookingFirstStep && bookingSecondStep &&
-            dateInput.value) {
+    bookingStepOneButton.addEventListener("click", (event) => {
+        const bookingSummary = document.getElementById("booking-summary");
+        console.log(bookingSummary === null || bookingSummary === void 0 ? void 0 : bookingSummary.innerText);
+        if (bookingSummary && bookingSummary.innerText == "Aucun billet sélectionné") {
+            event.preventDefault();
+            return;
+        }
+        else if (firstBookingPage && secondBookingPage && bookingStepOneButton && bookingFirstStep && bookingSecondStep && dateInput.value) {
             bookingFirstStep.classList.remove("active-step");
             bookingFirstStep.classList.add("inactive-step");
             bookingSecondStep.classList.remove("inactive-step");
@@ -68,6 +75,9 @@
             bookingThirdStep.classList.add("active-step");
             secondBookingPage.classList.toggle("hidden");
             thirdBookingPage.classList.toggle("hidden");
+            if (finalSummary) {
+                finalSummary.innerHTML = orderSummaryHTML;
+            }
         }
     });
     if (bookingSubmitButton) {
@@ -103,6 +113,7 @@
         summaryHTML += `</ul><br><p><strong>Total : ${totalAmount.toFixed(2)} €</strong></p>`;
         if (totalAmount > 0) {
             bookingSummary.innerHTML = summaryHTML;
+            orderSummaryHTML = summaryHTML;
         }
         else {
             bookingSummary.innerHTML = "Aucun billet sélectionné";

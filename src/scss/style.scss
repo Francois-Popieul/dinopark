@@ -559,7 +559,7 @@ input:invalid {
 .fieldset {
     padding: 1.25rem;
     margin: 1rem auto;
-    width: 500px;
+    width: 90%;
 }
 
 .form-group {
@@ -627,5 +627,28 @@ input:invalid {
 
     .booking-page-right-column {
         width: 40%;
+    }
+
+    .fieldset {
+        width: 50%;
+    }
+
+    .form-group {
+        flex-direction: row;
+    }
+
+    .form-group label {
+        width: 40%;
+        justify-content: space-between;
+    }
+
+    .form-group input {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 1080px) {
+    .fieldset {
+        width: 33%;
     }
 }

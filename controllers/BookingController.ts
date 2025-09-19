@@ -7,4 +7,8 @@ export class BookingController extends Controller {
         const tickets = await ticketRepository.findAll();
         this.response.render("pages/booking.ejs", { tickets: tickets });
     }
+
+    public saveBooking() {
+        this.response.render("pages/booking-result.ejs");
+    }
 }
