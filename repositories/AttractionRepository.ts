@@ -22,6 +22,27 @@ export class AttractionRepository extends Repository {
     }
   }
 
+  async findAttractionShortList(): Promise<Attraction[]> {
+    const query = {
+      name: "fetch-attraction-short-list",
+      text: `SELECT * FROM attraction ORDER BY RANDOM() LIMIT 3`,
+    };
+
+    try {
+      const result = await this.pool.query(query);
+
+      const data = result.rows.map((row) => {
+        return new Attraction(row.id_attraction, row.attraction_name,
+          row.attraction_description, row.attraction_illustration_path);
+      });
+
+      return data;
+    }
+    catch (error) {
+      return [];
+    }
+  }
+
   async findById(id: number): Promise<Attraction | null> {
     const query = {
       name: "fetch-attraction-by-id",

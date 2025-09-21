@@ -22,6 +22,26 @@ export class DinosaurRepository extends Repository {
     }
   }
 
+  async findDinoSaurShortList(): Promise<Dinosaur[]> {
+    const query = {
+      name: "fetch-dinosaur-short-list",
+      text: `SELECT * FROM dinosaur ORDER BY RANDOM() LIMIT 3`,
+    };
+
+    try {
+      const result = await this.pool.query(query);
+
+      const data = result.rows.map((row) => {
+        return new Dinosaur(row.id_dinosaur, row.dinosaur_name, row.diet, row.dinosaur_short_description, row.dinosaur_long_description, row.dino_illustration_path);
+      });
+
+      return data;
+    }
+    catch (error) {
+      return [];
+    }
+  }
+
   async findAllDiets(): Promise<string[]> {
     const query = {
       name: "fetch-all-dinosaur-diet",

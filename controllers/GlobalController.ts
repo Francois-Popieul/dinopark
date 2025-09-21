@@ -6,9 +6,9 @@ import { TicketRepository } from "../repositories/TicketRepository";
 export class GlobalController extends Controller {
     public async homepage() {
         const attractionRepository = new AttractionRepository();
-        const attractions = (await attractionRepository.findAll()).slice(0, 3);
+        const attractions = await attractionRepository.findAttractionShortList();
         const dinosaurRepository = new DinosaurRepository();
-        const dinosaurs = (await dinosaurRepository.findAll()).slice(0, 3);
+        const dinosaurs = await dinosaurRepository.findDinoSaurShortList();
         const ticketRepository = new TicketRepository();
         const tickets = await ticketRepository.findAll();
         this.response.render("pages/home.ejs", { tickets: tickets, attractions: attractions, dinosaurs: dinosaurs });
