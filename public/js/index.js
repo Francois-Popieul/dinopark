@@ -4,8 +4,8 @@
 })((function () { 'use strict';
 
     // Get booking page elements
-    const dateInput = document.getElementById("booking-date");
-    const expiryInput = document.getElementById("expiry-date");
+    const dateInput = document.getElementById("visit_date");
+    const expiryInput = document.getElementById("expiry_date");
     const bookingStepOneButton = document.getElementById("booking-step-one-button");
     const bookingStepTwoButton = document.getElementById("booking-step-two-button");
     const bookingSubmitButton = document.getElementById("booking-submit-button");
@@ -36,13 +36,13 @@
         let quantity = 0;
         increaseBtn.addEventListener("click", () => {
             quantity++;
-            quantityDisplay.textContent = quantity.toString();
+            quantityDisplay.value = quantity.toString();
             updateBookingSummary();
         });
         decreaseBtn.addEventListener("click", () => {
             if (quantity > 0) {
                 quantity--;
-                quantityDisplay.textContent = quantity.toString();
+                quantityDisplay.value = quantity.toString();
                 updateBookingSummary();
             }
         });
@@ -102,7 +102,7 @@
             if (ticketName && ticketPrice && quantityDisplay) {
                 const name = ticketName.innerText;
                 const price = parseFloat(ticketPrice.innerText);
-                const quantity = parseInt(quantityDisplay.innerText);
+                const quantity = parseInt(quantityDisplay.value);
                 const subtotal = price * quantity;
                 totalAmount += subtotal;
                 if (quantity > 0) {

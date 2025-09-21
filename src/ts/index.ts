@@ -2,8 +2,8 @@ import { PayCard } from "../../libs/PayCard";
 import { PaymentMethod } from "../../libs/paymentMethoidInterface";
 
 // Get booking page elements
-const dateInput: HTMLInputElement | null = document.getElementById("booking-date") as HTMLInputElement;
-const expiryInput: HTMLInputElement | null = document.getElementById("expiry-date") as HTMLInputElement;
+const dateInput: HTMLInputElement | null = document.getElementById("visit_date") as HTMLInputElement;
+const expiryInput: HTMLInputElement | null = document.getElementById("expiry_date") as HTMLInputElement;
 const bookingStepOneButton: HTMLButtonElement | null = document.getElementById("booking-step-one-button") as HTMLButtonElement;
 const bookingStepTwoButton: HTMLButtonElement | null = document.getElementById("booking-step-two-button") as HTMLButtonElement;
 const bookingSubmitButton: HTMLButtonElement | null = document.getElementById("booking-submit-button") as HTMLButtonElement;
@@ -30,20 +30,20 @@ if (expiryInput) { expiryInput.min = getConstraintDate(); }
 ticketCards.forEach((card) => {
     const decreaseBtn: HTMLButtonElement = card.querySelector(".decrease-button") as HTMLButtonElement;
     const increaseBtn: HTMLButtonElement = card.querySelector(".increase-button") as HTMLButtonElement;
-    const quantityDisplay: HTMLParagraphElement = card.querySelector(".ticket-quantity") as HTMLParagraphElement;
+    const quantityDisplay: HTMLInputElement = card.querySelector(".ticket-quantity") as HTMLInputElement;
 
     let quantity: number = 0;
 
     increaseBtn.addEventListener("click", () => {
         quantity++;
-        quantityDisplay.textContent = quantity.toString();
+        quantityDisplay.value = quantity.toString();
         updateBookingSummary();
     });
 
     decreaseBtn.addEventListener("click", () => {
         if (quantity > 0) {
             quantity--;
-            quantityDisplay.textContent = quantity.toString();
+            quantityDisplay.value = quantity.toString();
             updateBookingSummary();
         }
     });
@@ -106,12 +106,12 @@ function updateBookingSummary() {
     ticketCards.forEach((card) => {
         const ticketName = card.querySelector(".ticket-name") as HTMLParagraphElement;
         const ticketPrice = card.querySelector(".ticket-price-PH") as HTMLParagraphElement;
-        const quantityDisplay = card.querySelector(".ticket-quantity") as HTMLParagraphElement;
+        const quantityDisplay: HTMLInputElement = card.querySelector(".ticket-quantity") as HTMLInputElement;
 
         if (ticketName && ticketPrice && quantityDisplay) {
             const name = ticketName.innerText;
             const price = parseFloat(ticketPrice.innerText);
-            const quantity = parseInt(quantityDisplay.innerText);
+            const quantity = parseInt(quantityDisplay.value);
 
             const subtotal = price * quantity;
             totalAmount += subtotal;

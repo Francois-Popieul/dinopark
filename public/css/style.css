@@ -524,7 +524,9 @@ input:invalid {
 }
 
 .ticket-quantity {
+  width: 50px;
   font-size: 1.5rem;
+  text-align: center;
 }
 
 .decrease-button {
@@ -566,6 +568,15 @@ input:invalid {
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
+}
+
+.booking-confirmation-page {
+  width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 @media screen and (min-width: 780px) {

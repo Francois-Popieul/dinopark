@@ -1,12 +1,14 @@
 CREATE TABLE customer (
-    id_customer INT,
+    id_customer SERIAL,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
-    PRIMARY KEY (id_customer)
+    email_address VARCHAR(100) NOT NULL,
+    PRIMARY KEY (id_customer),
+    UNIQUE (email_address)
 );
 
 CREATE TABLE reservation (
-    id_reservation INT,
+    id_reservation SERIAL,
     order_date DATE NOT NULL,
     visit_date DATE NOT NULL,
     reservation_ticket INT NOT NULL,
@@ -375,7 +377,7 @@ VALUES (5, 1),
     (16, 6),
     (13, 6),
     (20, 6),
-    (22, 4);
+    (21, 4);
 
 INSERT INTO
     Accéder (id_ticket, id_attraction)
